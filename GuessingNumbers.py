@@ -102,6 +102,7 @@ def main():
       else:
         print("Pls enter a valid choice !!")
 
+"""the text below is actually making sure that the user is running the program directly"""
 
 if __name__ == "__main__":
   main()

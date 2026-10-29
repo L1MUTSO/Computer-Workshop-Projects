@@ -1,14 +1,12 @@
 import random
 import sys
 
-
 def welcome_message():
   print("=" * 20)
   print("welcome ; you're here to guess a number between 1 to 100")
   print("=" * 20)
   print("Your guess is now generated !")
   print("be aware that you have only 5 chances to find the number")
-
 
 def hint_generator(diff, guess, correct_guess):
   if guess > correct_guess:
@@ -21,10 +19,9 @@ def hint_generator(diff, guess, correct_guess):
   elif diff <= 15:
     closeness = "You're close but you gotta guess closer !"
   else:
-    closeness = "You're too far !"  # اصلاح علامت + به =
+    closeness = "You're too far !"
 
   return f"{closeness} (&) {direction}"
-
 
 def ranking_system(attempts):
   rank_chart = {
@@ -35,7 +32,6 @@ def ranking_system(attempts):
       5: "You gotta try more next time",
   }
   return rank_chart.get(attempts, "")
-
 
 def input_verify():
   while True:
@@ -49,7 +45,6 @@ def input_verify():
     else:
       print("ERROR: Please only enter valid integer number")
 
-
 def start_game():
   correct_guess = random.randint(1, 100)
   left_attempts = 5
@@ -61,10 +56,8 @@ def start_game():
     guess = input_verify()
     used_attemps += 1
 
-    # استفاده از abs برای اینکه اختلاف همیشه عدد مثبت باشد
     diff = abs(guess - correct_guess)
-
-    # این بخش‌ها باید داخل حلقه while باشند تا هر بار چک شوند
+    
     if guess == correct_guess:
       print("=" * 20)
       print(
@@ -83,7 +76,6 @@ def start_game():
       print(f"the correct number was {correct_guess}")
       print("=" * 20)
       return False
-
 
 def main():
   welcome_message()
